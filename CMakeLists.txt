@@ -9,9 +9,15 @@ project(
 #
 # dependency libs
 #
+include(FetchContent)
 find_package(yaml-cpp REQUIRED)
 find_package(spdlog REQUIRED)
-find_package(argparse REQUIRED)
+FetchContent_Declare(argparse
+    GIT_REPOSITORY https://github.com/p-ranav/argparse.git
+    GIT_TAG        v2.9     
+)
+FetchContent_MakeAvailable(argparse)
+include_directories(${argparse_SOURCE_DIR}/include)
 
 #
 # global settings
