@@ -34,9 +34,6 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # target libramulator.so
 #
 add_library(ramulator SHARED)
-set_target_properties(ramulator PROPERTIES
-  LIBRARY_OUTPUT_DIRECTORY  ${PROJECT_SOURCE_DIR}
-)
 target_link_libraries(ramulator 
   PUBLIC yaml-cpp
   PRIVATE spdlog
