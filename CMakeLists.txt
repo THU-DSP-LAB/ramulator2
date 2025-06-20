@@ -28,6 +28,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DRAMULATOR_DEBUG")
 include_directories(${PROJECT_SOURCE_DIR}/src)
+# TODO: this will effect top-level CMakeLists.txt, need to be fixed
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 #
@@ -41,6 +42,11 @@ target_link_libraries(ramulator
 )
 target_include_directories(ramulator 
   PUBLIC "${PROJECT_SOURCE_DIR}/src"
+)
+install(TARGETS ramulator 
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
 )
 
 #
